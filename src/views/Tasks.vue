@@ -76,9 +76,7 @@
   <h1>|</h1>
   <h1>Задание 19.3</h1>
   <div>
-    <!-- Если абзац скрыт, показываем кнопку "Показать" -->
     <button v-if="!visible193" @click="show193">Показать абзац</button>
-    <!-- Если абзац показан, показываем кнопку "Скрыть" -->
     <button v-else @click="hide193">Скрыть абзац</button>
     <p v-if="visible193">Этот абзац показан!</p>
   </div>
@@ -94,12 +92,63 @@
     <button @click="toggle203">Toggle Абзац 3</button>
     <p v-if="visible203">Это Абзац 3</p>
   </div>
+  <h1>|</h1>
+  <h1>Задание 21</h1>
+  <div>
+    <!-- Абзац 1 -->
+    <button @click="toggle211">
+      {{ visible211 ? 'hide' : 'show' }}
+    </button>
+    <p v-if="visible211">Это абзац 1</p>
+
+    <!-- Абзац 2 -->
+    <button @click="toggle212">
+      {{ visible212 ? 'hide' : 'show' }}
+    </button>
+    <p v-if="visible212">Это абзац 2</p>
+
+    <!-- Абзац 3 -->
+    <button @click="toggle213">
+      {{ visible213 ? 'hide' : 'show' }}
+    </button>
+    <p v-if="visible213">Это абзац 3</p>
+  </div>
+  <h1>|</h1>
+  <h1>Задание 22</h1>
+  <div>
+    <p v-if="isAdmin22">У вас есть права администратора</p>
+    <p v-else>Вы обычный пользователь</p>
+  </div>
+  <h1>|</h1>
+  <h1>Задание 23</h1>
+  <div>
+    <p v-if="day23 === 'Понедельник'">Понедельник</p>
+    <p v-else-if="day23 === 'Вторник'">Вторник</p>
+    <p v-else-if="day23 === 'Среда'">Среда</p>
+    <p v-else-if="day23 === 'Четверг'">Четверг</p>
+    <p v-else-if="day23 === 'Пятница'">Пятница</p>
+    <p v-else-if="day23 === 'Суббота'">Суббота</p>
+    <p v-else-if="day23 === 'Воскресенье'">Воскресенье</p>
+  </div>
+  <h1>|</h1>
+  <h1>Задание 24</h1>
+  <div>
+    <p v-if="age24 < 18">подросток</p>
+    <p v-else-if="age24 >= 19 && age24 <= 25">молодой человек</p>
+    <p v-else>мужчина</p>
+  </div>
 </template>
 
 <script>
 export default {
   data() {
     return {
+      age24: 25,
+      day23: 'Среда',
+      isAdmin22: true,
+      visible211: false,
+      visible212: false,
+      visible213: false,
       visible201: false,
       visible202: false,
       visible203: false,
@@ -129,6 +178,15 @@ export default {
     }
   },
   methods: {
+    toggle211() {
+      this.visible211 = !this.visible211;
+    },
+    toggle212() {
+      this.visible212 = !this.visible212;
+    },
+    toggle213() {
+      this.visible213 = !this.visible213;
+    },
     toggle201() {
       this.visible201 = !this.visible201;
     },
