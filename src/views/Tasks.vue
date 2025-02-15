@@ -53,13 +53,60 @@
   <h1>Задание 16</h1>
   <a href="https://google.com" @click.prevent="handleClick">Не переходи по ссылке</a><br>
   <button @click.once="handleClick2">Нажми меня один раз</button>
+  <h1>|</h1>
+  <h1>Задание 17</h1>
+  <p v-if="visible">Этот абзац отображается, если visible равно true</p>
+  <p v-else>Этот абзац отображается, если visible равно false</p>
+  <h1>|</h1>
+  <h1>Задание 18</h1>
+  <p v-if="!hidden">text</p>
+  <h1>|</h1>
+  <h1>Задание 19.1</h1>
+  <div>
+    <button @click="show191">Показать абзац</button>
+    <p v-if="visible191">Этот абзац показан!</p>
+  </div>
+  <h1>|</h1>
+  <h1>Задание 19.2</h1>
+  <div>
+    <button @click="show192">Показать абзац</button>
+    <button @click="hide192">Скрыть абзац</button>
+    <p v-if="visible192">Этот абзац показан!</p>
+  </div>
+  <h1>|</h1>
+  <h1>Задание 19.3</h1>
+  <div>
+    <!-- Если абзац скрыт, показываем кнопку "Показать" -->
+    <button v-if="!visible193" @click="show193">Показать абзац</button>
+    <!-- Если абзац показан, показываем кнопку "Скрыть" -->
+    <button v-else @click="hide193">Скрыть абзац</button>
+    <p v-if="visible193">Этот абзац показан!</p>
+  </div>
+  <h1>|</h1>
+  <h1>Задание 20</h1>
+  <div>
+    <button @click="toggle201">Toggle Абзац 1</button>
+    <p v-if="visible201">Это Абзац 1</p>
 
+    <button @click="toggle202">Toggle Абзац 2</button>
+    <p v-if="visible202">Это Абзац 2</p>
+
+    <button @click="toggle203">Toggle Абзац 3</button>
+    <p v-if="visible203">Это Абзац 3</p>
+  </div>
 </template>
 
 <script>
 export default {
   data() {
     return {
+      visible201: false,
+      visible202: false,
+      visible203: false,
+      visible193: false,
+      visible192: false,
+      visible191: false,
+      visible: true, // Измените на false, чтобы увидеть второй абзац
       name: 'john',
       surn: 'smit',
       text: 'page',
@@ -82,6 +129,30 @@ export default {
     }
   },
   methods: {
+    toggle201() {
+      this.visible201 = !this.visible201;
+    },
+    toggle202() {
+      this.visible202 = !this.visible202;
+    },
+    toggle203() {
+      this.visible203 = !this.visible203;
+    },
+    show193() {
+      this.visible193 = true;
+    },
+    hide193() {
+      this.visible193 = false;
+    },
+    show192() {
+      this.visible192 = true;
+    },
+    hide192() {
+      this.visible192 = false;
+    },
+    show191() {
+      this.visible191 = true;
+    },
     handleClick2() {
       alert("Ты нажал кнопку, но больше не сможешь!");
     },
