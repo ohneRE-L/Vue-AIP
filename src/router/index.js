@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 // Импортируем компоненты (страницы)
 import HomePage from '../views/HomePage.vue';
-import DatePage from '../views/Tasks.vue';
+import DatePage from '../../Tasks.vue';
 
 const routes = [
     { path: '/', component: HomePage },
